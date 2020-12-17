@@ -26,7 +26,7 @@ class CanPutDown():
 #     else:
 #         print('正しい形式で入力してください')
 #         continue
- 
+#
 #     # 手を打つ
 #     if not board.move(x, y):
 #         print('そこには置けません')
