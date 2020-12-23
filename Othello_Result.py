@@ -6,7 +6,7 @@ class Othello_Result():
         b_num = 0 #黒石の数
         w_num = 0 #白石の数
         # if文で全部埋まったときと、全部埋まってないけど終了するパターンを分ける
-        for i in len(array):
+        for i in range(len(array)):
             if array[i] == "●":
                 b_num = b_num + 1
             if array[i] == "○":
