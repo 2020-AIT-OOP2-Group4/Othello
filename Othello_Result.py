@@ -30,13 +30,5 @@ class Othello_Result():
             else:
                 label["text"] = "黒の勝ちです"
 
-        else: #継続するとき 
-            if label["text"][0] == "○":
-                label["text"][0] == "●"
-                label["text"] = f'{label["text"][0]}のターンです'
-            else:
-                label["text"][0] == "○"
-                label["text"] = f'{label["text"][0]}のターンです'
-
 
 
