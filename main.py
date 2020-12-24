@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from Othello_CanPutDown import Othello_CanPutDown as OC
 
 judge = 0
 next_str = "○"
@@ -8,6 +9,11 @@ def set_text2b(b):
     global judge
     global next_str
     next_str=label1["text"][0]
+    if(b['text'] == 'x'):
+        b["text"]=next_str
+        next_str="●" if next_str == "○" else "○"
+        label1["text"] = f'{next_str}のターンです'
+        OC.reverse_check(kiban(), next_str)
     #ボタンの識別番号を調べる 
     buttonNumber(b)
     if(eval(b)['text'] == '' ):
@@ -15,9 +21,9 @@ def set_text2b(b):
         next_str="●" if next_str == "○" else "○"
         label1["text"] = f'{next_str}のターンです'
         
-def kiban(koma):
+def kiban():
 
-    ButtonText = [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
+    return [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
                    button10['text'], button11['text'], button12['text'],button13['text'],button14['text'],button15['text'],button16['text'],button17['text'],
                    button20['text'], button21['text'], button22['text'],button23['text'],button24['text'],button25['text'],button26['text'],button27['text'],
                    button30['text'],button31['text'],button32['text'],button33['text'],button34['text'],button35['text'],button36['text'],button37['text'], 
@@ -196,6 +202,7 @@ def TippingOver(t_num):
 
                        
 if __name__ == '__main__':
+    
     root = Tk()
     root.title('オセロ')
     frame = ttk.Frame(root, padding=10)
@@ -204,7 +211,6 @@ if __name__ == '__main__':
     frame.rowconfigure(0, weight=1)
     label1 = ttk.Label(frame, text="○のターンです")
     label1.grid(row=0, column=0, columnspan=10, stick=(N, S))
-   
     
     button0 = ttk.Button(frame, padding=5)
     button0["command"]=lambda: set_text2b('button0')
@@ -409,6 +415,5 @@ if __name__ == '__main__':
     button77 = ttk.Button(frame, padding=5)
     button77["command"]=lambda: set_text2b('button77')
     button77.grid(row=8, column=7, stick=(E, W, S, N))
-   
     
     root.mainloop()

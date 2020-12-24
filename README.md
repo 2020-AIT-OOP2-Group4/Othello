@@ -9,6 +9,7 @@
 
 ## Require
 - Flask==1.1.2
+- pygame==2.0.0
 
 ## Usage
 ### プログラムの起動
