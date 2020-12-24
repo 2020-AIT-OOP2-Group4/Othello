@@ -1,26 +1,64 @@
 from tkinter import *
 from tkinter import ttk
-from Othello_CanPutDown import Othello_CanPutDown as OC
-
+from Othello_CanPutDown import Othello_CanPutDown as CP
+from Othello_Result import Othello_Result as OR
+once = 0
 judge = 0
 next_str = "○"
+def run_once():
+    global once
+    if once == 0:
+        button23["text"] = "x"
+        button32["text"] = "x"
+        button45["text"] = "x"
+        button54["text"] = "x"
+        judge = 1
 
 def set_text2b(b):
     global judge
     global next_str
     next_str=label1["text"][0]
-    if(b['text'] == 'x'):
-        b["text"]=next_str
-        next_str="●" if next_str == "○" else "○"
-        label1["text"] = f'{next_str}のターンです'
-        OC.reverse_check(kiban(), next_str)
-    #ボタンの識別番号を調べる 
-    buttonNumber(b)
-    if(eval(b)['text'] == '' ):
+    if(eval(b)['text'] == 'x'):
+        #ボタンの識別番号を調べる 
+        buttonNumber(b)
         eval(b)["text"]=next_str
         next_str="●" if next_str == "○" else "○"
         label1["text"] = f'{next_str}のターンです'
-        
+        array = CP().reverse_check(kiban(), next_str)
+        array_button = button()
+        for i in range(len(array)):
+            array_button[i]["text"] = array[i]
+        a = 0
+        for i in kiban():
+            if i == "x":
+                a = a + 1
+        if a == 0 and judge == 1:
+            judge = judge + 1
+            next_str="●" if next_str == "○" else "○"
+            label1["text"] = f'{next_str}のターンです'
+            array = CP().reverse_check(kiban(), next_str)
+            array_button = button()
+            for i in range(len(array)):
+                array_button[i]["text"] = array[i]
+                for i in range(len(array)):
+                    array_button[i]["text"] = array[i]
+                a = 0
+            for i in kiban():
+                if i == "x":
+                    a = a + 1
+        if a != 0:
+            judge = 1
+        OR().result_check(kiban(), label1, judge)
+
+def button():
+    return [button0, button1, button2, button3, button4, button5, button6, button7,
+                    button10, button11, button12, button13, button14, button15, button16, button17,
+                    button20, button21, button22, button23, button24, button25, button26, button27,
+                    button30, button31, button32, button33, button34, button35, button36, button37,
+                    button40, button41, button42, button43, button44, button45, button46, button47,
+                    button50, button51, button52, button53, button54, button55, button56, button57,
+                    button60, button61, button62, button63, button64, button65, button66, button67,
+                    button70, button71, button72, button73, button74, button75, button76, button77]
 def kiban():
 
     return [button0['text'], button1['text'], button2['text'],button3['text'],button4['text'],button5['text'],button6['text'],button7['text'],
@@ -49,7 +87,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -69,7 +107,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -89,7 +127,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -109,7 +147,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -129,7 +167,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -149,7 +187,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -169,7 +207,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -189,7 +227,7 @@ def TippingOver(t_num):
         print(w_num)
         p = f'button{w_num}'
         print(eval(p)['text'])
-        if eval(p)['text'] == '':
+        if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
             if(count > 0):
@@ -416,4 +454,5 @@ if __name__ == '__main__':
     button77["command"]=lambda: set_text2b('button77')
     button77.grid(row=8, column=7, stick=(E, W, S, N))
     
+    run_once()
     root.mainloop()
