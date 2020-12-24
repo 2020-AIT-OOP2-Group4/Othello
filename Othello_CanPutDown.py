@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from tkinter import *
-from tkinter import ttk
 #Othello
 
 class Othello_CanPutDown():
-    def reverse_check(self, array, next_str):#check(self, ボタンの配列情報, 次のプレイヤーの情報)
+    def reverse_check(array, next_str):#check(ボタンの配列情報, 次のプレイヤーの情報)
         for i in range(8):
             for j in range(8):
                 #打てる場所の情報を初期化する

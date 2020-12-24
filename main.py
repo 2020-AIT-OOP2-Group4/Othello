@@ -1,21 +1,24 @@
 from tkinter import *
 from tkinter import ttk
+from Othello_CanPutDown import Othello_CanPutDown as OC
 
 judge = 0
 
 def set_text2b(b):
     global judge
     next_str=label1["text"][0]
-    if(b['text'] == '' ):
+    if(b['text'] == 'x'):
         b["text"]=next_str
         next_str="●" if next_str == "○" else "○"
         label1["text"] = f'{next_str}のターンです'
+        OC.reverse_check(kiban(), next_str)
+    
     #ボタンの識別番号を調べる 
     buttonNumber(b)
         
-def kiban(koma):
+def kiban():
 
-    ButtonText = [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
+    return [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
                    button10['text'], button11['text'], button12['text'],button13['text'],button14['text'],button15['text'],button16['text'],button17['text'],
                    button20['text'], button21['text'], button22['text'],button23['text'],button24['text'],button25['text'],button26['text'],button27['text'],
                    button30['text'],button31['text'],button32['text'],button33['text'],button34['text'],button35['text'],button36['text'],button37['text'], 
