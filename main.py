@@ -24,7 +24,7 @@ def kiban(koma):
                    button60['text'],button61['text'],button62['text'],button63['text'],button64['text'],button65['text'],button66['text'],button67['text'],
                    button70['text'],button71['text'],button72['text'],button73['text'],button74['text'],button75['text'],button76['text'],button77['text']]
 
-# 押されたボタンの識別番号を出力(0-64:高本作)
+# 押されたボタンの識別番号を出力(1-64:高本作)
 def buttonNumber(b):
         w = str(b)
         button_num = w.split("n")
