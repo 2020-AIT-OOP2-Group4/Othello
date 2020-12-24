@@ -28,20 +28,23 @@ def kiban(koma):
 def buttonNumber(b):
         w = str(b)
         button_num = w.split("n")
+        if button_num[1] == '':
+            button_num[1] = 1
         print(button_num[1])
         TippingOver(button_num[1])
 
 # 押されたボタンから周囲をチェック(高本作)
 def TippingOver(t_num):
     w_num = int(t_num)
+    
     # 右を見る
     while(w_num % 8 != 0):
         w_num = w_num + 1
-        print(w_num)
+        # print(w_num)
     # 左を見る
     while(w_num % 8 != 1):
         w_num = w_num - 1
-        print(w_num)
+        # print(w_num)
 
                        
 if __name__ == '__main__':
