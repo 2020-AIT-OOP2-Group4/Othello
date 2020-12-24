@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import ttk
 
-
 judge = 0
 
 def set_text2b(b):
@@ -11,10 +10,10 @@ def set_text2b(b):
         b["text"]=next_str
         next_str="●" if next_str == "○" else "○"
         label1["text"] = f'{next_str}のターンです'
+    #ボタンの識別番号を調べる 
+    buttonNumber(b)
         
 def kiban(koma):
-
-    
 
     ButtonText = [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
                    button10['text'], button11['text'], button12['text'],button13['text'],button14['text'],button15['text'],button16['text'],button17['text'],
@@ -24,6 +23,29 @@ def kiban(koma):
                    button50['text'],button51['text'],button52['text'],button53['text'],button54['text'],button55['text'],button56['text'],button57['text'],
                    button60['text'],button61['text'],button62['text'],button63['text'],button64['text'],button65['text'],button66['text'],button67['text'],
                    button70['text'],button71['text'],button72['text'],button73['text'],button74['text'],button75['text'],button76['text'],button77['text']]
+
+# 押されたボタンの識別番号を出力(1-64:高本作)
+def buttonNumber(b):
+        w = str(b)
+        button_num = w.split("n")
+        if button_num[1] == '':
+            button_num[1] = 1
+        print(button_num[1])
+        TippingOver(button_num[1])
+
+# 押されたボタンから周囲をチェック(高本作)
+def TippingOver(t_num):
+    w_num = int(t_num)
+    
+    # 右を見る
+    while(w_num % 8 != 0):
+        w_num = w_num + 1
+        # print(w_num)
+    # 左を見る
+    while(w_num % 8 != 1):
+        w_num = w_num - 1
+        # print(w_num)
+
                        
 if __name__ == '__main__':
     root = Tk()
