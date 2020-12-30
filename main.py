@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-import tkinter as tk
 
 judge = 0
 
@@ -9,13 +8,12 @@ def set_text2b(b):
     next_str=label1["text"][0]
     if(b['text'] == '' ):
         b["text"]=next_str
-        next_str="●" if next_str == "○" else "○"
+        next_str="○" if next_str == "●" else "●"
         label1["text"] = f'{next_str}のターンです'
         
 def kiban(koma):
 
     
-
     ButtonText = [button00['text'], button01['text'], button02['text'],button03['text'],button04['text'],button05['text'],button06['text'],button07['text'],
                    button10['text'], button11['text'], button12['text'],button13['text'],button14['text'],button15['text'],button16['text'],button17['text'],
                    button20['text'], button21['text'], button22['text'],button23['text'],button24['text'],button25['text'],button26['text'],button27['text'],
@@ -29,16 +27,19 @@ if __name__ == '__main__':
     
     root = Tk()
     root.title('オセロ')
+    root.resizable(width=False, height=False)
     frame = ttk.Frame(root, padding=10)
     frame.grid(sticky=(E, W, S, N))
     frame.columnconfigure(0, weight=1)
     frame.rowconfigure(0, weight=1)
-    label1 = ttk.Label(frame, text="○のターンです")
+    label1 = ttk.Label(frame, text="●のターンです")
     label1.grid(row=0, column=0, columnspan=10, stick=(N, S))
    
     s = ttk.Style()
     s.theme_use('classic')
     s.configure('MyWidget.TButton', background='#4db56a',padding=[0,18],width=6)
+    s.map("MyWidget.TButton", background=[("disabled", "#4db56a")])
+    
 
     button00 = ttk.Button(frame,style='MyWidget.TButton')
     button00["command"]=lambda: set_text2b(button00)
@@ -127,11 +128,13 @@ if __name__ == '__main__':
     button33 = ttk.Button(frame,style='MyWidget.TButton')
     button33["command"]=lambda: set_text2b(button33)
     button33.grid(row=4, column=3, stick=(E, W, S, N))
-    button33["text"]="●"
+    button33["text"]="○"
+    button33["state"] = "disable"
     button34 = ttk.Button(frame,style='MyWidget.TButton')
     button34["command"]=lambda: set_text2b(button34)
     button34.grid(row=4, column=4, stick=(E, W, S, N))
-    button34["text"]="○"
+    button34["text"]="●"
+    button34["state"] = "disable"
     button35 = ttk.Button(frame,style='MyWidget.TButton')
     button35["command"]=lambda: set_text2b(button35)
     button35.grid(row=4, column=5, stick=(E, W, S, N))
@@ -141,6 +144,7 @@ if __name__ == '__main__':
     button37 = ttk.Button(frame,style='MyWidget.TButton')
     button37["command"]=lambda: set_text2b(button37)
     button37.grid(row=4, column=7, stick=(E, W, S, N))
+    
 
     button40 = ttk.Button(frame,style='MyWidget.TButton')
     button40["command"]=lambda: set_text2b(button40)
@@ -154,11 +158,13 @@ if __name__ == '__main__':
     button43 = ttk.Button(frame,style='MyWidget.TButton')
     button43["command"]=lambda: set_text2b(button43)
     button43.grid(row=5, column=3, stick=(E, W, S, N))
-    button43["text"]="○"
+    button43["text"]="●"
+    button43["state"] = "disable"
     button44 = ttk.Button(frame,style='MyWidget.TButton')
     button44["command"]=lambda: set_text2b(button44)
     button44.grid(row=5, column=4, stick=(E, W, S, N))
-    button44["text"]="●"
+    button44["text"]="○"
+    button44["state"] = "disable"
     button45 = ttk.Button(frame,style='MyWidget.TButton')
     button45["command"]=lambda: set_text2b(button45)
     button45.grid(row=5, column=5, stick=(E, W, S, N))
