@@ -8,7 +8,6 @@
 - 音を流す処理（担当：森田）
 
 ## Require
-- Flask==1.1.2
 - pygame==2.0.0
 
 ## Usage
