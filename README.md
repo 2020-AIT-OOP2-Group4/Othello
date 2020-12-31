@@ -8,6 +8,7 @@
 - 音を流す処理（担当：森田）
 
 ## Require
+- tkinter==8.6
 - pygame==2.0.0
 
 ## Usage
