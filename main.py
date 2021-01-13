@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from Othello_CanPutDown import Othello_CanPutDown as CP
 from Othello_Result import Othello_Result as OR
+from test import main as bgm
 once = 0
 judge = 1
 next_str = "○"
@@ -16,6 +17,7 @@ def run_once():
         button45.configure(image=image4)
         button54["text"] = "x"
         button54.configure(image=image4)
+        bgm()
         once = 1
 
 def set_text2b(b):
@@ -105,9 +107,9 @@ def TippingOver(t_num):
     # 右を見る
     while(w_num % 10 != 7):
         w_num = w_num + 1
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -125,9 +127,9 @@ def TippingOver(t_num):
     # 左を見る
     while(w_num % 10 != 0):
         w_num = w_num - 1
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -145,9 +147,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num > 7):
         w_num = w_num - 10
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -165,9 +167,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num < 70):
         w_num = w_num + 10
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -185,9 +187,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num < 70 and w_num % 10 != 7):
         w_num = w_num + 11
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -205,9 +207,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num > 7 and w_num % 10 != 0):
         w_num = w_num - 11
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -225,9 +227,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num > 7 and w_num % 10 != 7):
         w_num = w_num - 9
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
@@ -245,9 +247,9 @@ def TippingOver(t_num):
     count = 0
     while(w_num < 70 and w_num % 10 != 0):
         w_num = w_num + 9
-        print(w_num)
+        # print(w_num)
         p = f'button{w_num}'
-        print(eval(p)['text'])
+        # print(eval(p)['text'])
         if eval(p)['text'] == '' or eval(p)['text'] == 'x':
             break
         if eval(p)['text'] == next_str:
